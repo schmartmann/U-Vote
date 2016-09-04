@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require './config/environments'
 require './models/user'
+require './models/school'
 
 module Sinatra
   class Server < Sinatra::Base
