@@ -9,9 +9,8 @@ body {
 .container {
   background: url('/img/PhotoGray_bg_c-1.jpg') repeat scroll top left;
   margin: 0 auto;
-  height: 700px;
+  height: auto;
   width: 700px;
-  overflow: hidden;
 }
 
 .spotlight {
@@ -78,4 +77,49 @@ a {
 
 a:visited {
   color: silver;
+}
+
+input {
+  height: 50px;
+  width: 300px;
+  color: white;
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid #41a2be;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+  opacity: 0.6;
+}
+
+input:focus{
+  border: 2px solid #41a2be;
+}
+
+.buttons-row {
+  margin-top: 50px;
+}
+
+.status-buttons {
+  display: inline;
+  text-transform: uppercase;;
+  padding: 20px;
+  border-radius: 0px;
+  border: 2px solid #ffffff;
+  background-color:#474747;
+  font-size: 16px;
+  font-weight: 500;
+  height: 60px;
+  width: 130px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.status-buttons:hover {
+  cursor: pointer;
+  font-weight: 800;
+  color: #41a2be;
+  border:5px solid #41a2be;
 }

@@ -22,6 +22,10 @@ module Sinatra
       @schools = School.all
       erb :rankings
     end
+    # 
+    # get "/new" do
+    #   @user = User.new
+    # end
 
     get "/participation" do
       erb :participation

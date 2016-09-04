@@ -4,10 +4,13 @@
   <p id="logo">How civic-minded is your college ?</p>
   <p>Enter your <i>ACADEMIC EMAIL address*</i></p>
   <p>to be counted towards your school’s 2016 registration tally.</p>
-<ul>
-  <%@users.each do |user|%>
-  <%= user.email %> 
-  <% end %>
-</ul>
+  <form>
+    <input id="email-input" value="Ex: homer.simpson@springfielduni.edu" name="email"></input>
+      <div class="buttons-row">
+        <div class="status-buttons">Am I Registered?</div>
+        <div class="status-buttons">I've Registered.</div>
+        <div class="status-buttons">I Need To Register.</div>
+      </div>
+  </form>
 </div>
 </div>
