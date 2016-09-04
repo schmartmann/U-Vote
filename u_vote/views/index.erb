@@ -4,5 +4,10 @@
   <p id="logo">How civic-minded is your college ?</p>
   <p>Enter your <i>ACADEMIC EMAIL address*</i></p>
   <p>to be counted towards your school’s 2016 registration tally.</p>
+<ul>
+  <%@users.each do |user|%>
+  <%= user.email %> 
+  <% end %>
+</ul>
 </div>
 </div>

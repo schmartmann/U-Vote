@@ -3,10 +3,14 @@ require 'sinatra/activerecord'
 require './config/environments'
 require './models/user'
 require './models/school'
+# current_dir = Dir.pwd
+# Dir["#{current_dir}/models/*.rb"].each { |file| require file }
+
 
 module Sinatra
   class Server < Sinatra::Base
     get "/" do
+      @users = User.all
       erb :index
     end
 
@@ -15,6 +19,7 @@ module Sinatra
     end
 
     get "/rankings" do
+      @schools = School.all
       erb :rankings
     end
 
