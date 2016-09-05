@@ -11,6 +11,7 @@ body {
   margin: 0 auto;
   height: auto;
   width: 700px;
+  overflow: scroll;
 }
 
 .spotlight {
@@ -69,6 +70,7 @@ p#logo {
 .row {
   font-size: 14px;
   text-align: center;
+  line-height: 50%;
 }
 
 a {
@@ -95,7 +97,7 @@ input {
 }
 
 input:focus{
-  border: 2px solid #41a2be;
+  outline: none;
 }
 
 .buttons-row {
@@ -120,6 +122,64 @@ input:focus{
 .status-buttons:hover {
   cursor: pointer;
   font-weight: 800;
-  color: #41a2be;
   border:5px solid #41a2be;
+}
+
+#status-instruction {
+  display: none;
+}
+
+.status-buttons a:visited {
+  color: rgb(255, 255, 255);
+}
+
+.status-buttons a:hover {
+  color: #41a2be;
+}
+
+.separator-title {
+  display: block;
+  height: 2px;
+  width: 460px;
+  color: #9b9b9b;
+  margin: 80px 40px 0px;
+}
+
+.separator-title hr {
+  height: auto;
+  width: 620px;
+  border-color: #9b9b9b#;
+}
+
+
+
+footer {
+  text-align: center;
+  font-size: 14px;
+}
+
+footer p {
+  margin-top: 30px;
+}
+
+#star {
+  margin-top: 0;
+}
+
+.hero-image-row {
+  margin: -20px 115px;
+}
+
+.separator-participation {
+  display: block;
+  height: 2px;
+  width: 460px;
+  color: #9b9b9b;
+  margin: 0px 40px 0px;
+}
+
+.separator-participation hr {
+  height: auto;
+  width: 620px;
+  border-color: #9b9b9b#;
 }

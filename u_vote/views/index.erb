@@ -1,16 +1,27 @@
 <div class="image-container">
   <img src="/img/UVoteLogo.png">
+</div>
+
 <div class="row">
   <p id="logo">How civic-minded is your college ?</p>
   <p>Enter your <i>ACADEMIC EMAIL address*</i></p>
   <p>to be counted towards your school’s 2016 registration tally.</p>
   <form>
     <input id="email-input" value="Ex: homer.simpson@springfielduni.edu" name="email"></input>
+    <h4 id="status-instruction">Click one of these buttons to validate email, and make your school count!</h4>
       <div class="buttons-row">
-        <div class="status-buttons">Am I Registered?</div>
-        <div class="status-buttons">I've Registered.</div>
-        <div class="status-buttons">I Need To Register.</div>
+        <div class="status-buttons" id="am-i-registered"><a href="https://www.rockthevote.com/get-informed/elections/am-i-registered-to-vote/?source=rtv.com-topnavigation">Am I Registered?</a></div>
+        <div class="status-buttons" id="ive-registered"><a href="/rankings">I've Registered.</a></div>
+        <div class="status-buttons" id="need-to-register"><a href="/register">I Need To Register.</a></div>
       </div>
   </form>
 </div>
+
+<div class="separator-title">
+  <hr>
 </div>
+
+<footer>
+  <p>U-Vote is committed to increasing student voter registration and fostering civic engagement across<br> college campuses by harnessing the power of inter-collegiate cooperation and competition.</p>
+  <p id="star">*Your email is only used for verification purposes and will not be shared, or used for communication.</p>
+</footer>
