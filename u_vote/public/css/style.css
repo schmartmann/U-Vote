@@ -139,16 +139,12 @@ input:focus{
 
 .separator-title {
   display: block;
+  background: url("/img/shapeimage_1.jpg");
   height: 2px;
-  width: 460px;
+  width: 640px;
+  margin-left: 30px;
+  margin-top: 80px;
   color: #9b9b9b;
-  margin: 80px 40px 0px;
-}
-
-.separator-title hr {
-  height: auto;
-  width: 620px;
-  border-color: #9b9b9b#;
 }
 
 
@@ -167,19 +163,47 @@ footer p {
 }
 
 .hero-image-row {
-  margin: -20px 115px;
+  margin: -30px 115px;
 }
 
 .separator-participation {
   display: block;
+  background: url("/img/shapeimage_1.jpg");
   height: 2px;
-  width: 460px;
+  width: 640px;
+  margin-left: 30px;
   color: #9b9b9b;
-  margin: 0px 40px 0px;
 }
 
-.separator-participation hr {
-  height: auto;
-  width: 620px;
-  border-color: #9b9b9b#;
+.logo {
+  font-size:24px;
+  text-transform:uppercase;
+  display: inline-block;
+}
+
+.logo img {
+  display: inline-block;
+  float: left;
+  margin-left: 30px;
+  padding-right: -50px;
+}
+
+.logo p {
+  float: left;
+  padding-top: 20px;
+}
+
+iframe {
+  margin: 0 20px;
+}
+
+.participation-map p {
+  text-align: center;
+  font-size: 14px;
+}
+
+.participation-map a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  overflow: auto;
 }

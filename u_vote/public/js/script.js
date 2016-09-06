@@ -16,4 +16,5 @@ $('#email-input').on("click", function(){
    status.show();
 })
 
+
 })();
