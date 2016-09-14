@@ -2,19 +2,17 @@
 (function(){
 console.log("js loaded")
 
-var email = $('#email-input').val();
-var status_buttons = $('.status-buttons');
+const am_i_registered = $("#am-i-registered");
+const ive_registered = $("#ive-registered");
+const need_to_register = $("#need-to-register");
+const status_bar = $("#status-instruction");
 
 $('#email-input').on("click", function(){
-  if (this.value === "Ex: homer.simpson@springfielduni.edu") {
+  if (this.value === "Ex: Homer.J.Simpson@SpringfieldUni.edu") {
        this.value = '';
        $(this).css("opacity", "1")
    };
    var buttons = $('.status-buttons');
-   buttons.css("opacity", "1");
-   var status = $("#status-instruction");
-   status.show();
 })
-
 
 })();

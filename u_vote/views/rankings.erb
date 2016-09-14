@@ -1,6 +1,6 @@
 <h1> This is the rankings table</h1>
 <ul>
 <% @schools.each do |school| %>
-<li><%= school.instnm%> : <%= school.participation%>.</li> 
+<li><%= school.instnm%> : <%= school.participation%>. <%=school.webaddr%></li> 
 <% end %>
 </ul>

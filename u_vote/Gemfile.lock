@@ -34,6 +34,8 @@ GEM
     sinatra-activerecord (2.0.10)
       activerecord (>= 3.2)
       sinatra (~> 1.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     thin (1.7.0)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -52,6 +54,7 @@ DEPENDENCIES
   rake
   sinatra
   sinatra-activerecord
+  sinatra-flash
   thin
 
 BUNDLED WITH

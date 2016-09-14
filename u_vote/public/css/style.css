@@ -107,26 +107,28 @@ input:focus{
 .status-buttons {
   display: inline;
   text-transform: uppercase;;
-  padding: 20px;
+  /*padding: 20px;*/
   border-radius: 0px;
   border: 2px solid #ffffff;
+  color: rgb(255, 255, 255);
   background-color:#474747;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 500;
   height: 60px;
-  width: 130px;
-  opacity: 0;
-  transition: opacity 1s;
+  width: 160px;
+  /*opacity: 0;*/
+  /*transition: opacity 1s;*/
 }
 
 .status-buttons:hover {
   cursor: pointer;
-  font-weight: 800;
+  font-weight: 600;
   border:5px solid #41a2be;
+  color: #41a2be;
 }
 
 #status-instruction {
-  display: none;
+  /*display: none;*/
 }
 
 .status-buttons a:visited {
