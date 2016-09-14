@@ -23,6 +23,10 @@
       <h4 id="status-instruction" style="color:red;">
         <strong><%=flash[:fail]%></strong>
       </h4>
+    <% elsif flash[:dupe]%>
+    <h4 id="status-instruction" style="color:red;">
+      <strong><%=flash[:dupe]%></strong>
+    </h4>
     <% else %>
       <h4 id="status-instruction">Click one of these buttons to validate email, and make your school count!</h4>
     <% end %>

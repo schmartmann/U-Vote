@@ -26,22 +26,26 @@ module Sinatra
     end
 
     post "/validate" do
-      @status = params[:status]
-      @email = params[:email]
       domain = params[:email].match(/(?<=@)[\w+.-]+/)
-
       if School.exists?(['webaddr ILIKE ?', "%#{domain}%"]) and domain.nil? == false
         @domain = domain
-        @user = User.create(
-        email: @email,
-        domain: @domain,
-        status:@status)
-        flash[:success] = "Way to rep your school!"
-        @email
-        redirect "/"
+        @email = params[:email]
+        if User.exists?(['email ILIKE ?', "%#{@email}%"])
+          flash[:dupe] = "Looks like you've already repped your school! Get the word out!"
+          redirect "/"
+        else
+          @status = params[:status]
+          @user = User.create(
+          email: @email,
+          domain: @domain,
+          status:@status)
+          user = User.last
+          puts user.email
+          flash[:success] = "Way to rep your school!"
+          redirect "/"
+        end
       else
         puts "failed email is #{@email}"
-        @email
         flash[:fail] = "Oops! Make sure you're using your academic email address."
         redirect "/"
       end
