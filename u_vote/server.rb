@@ -35,10 +35,16 @@ module Sinatra
           redirect "/"
         else
           @status = params[:status]
+
           @user = User.create(
           email: @email,
           domain: @domain,
           status:@status)
+
+          school = School.find_by(['webaddr ILIKE ?', "%#{@domain}%"])
+          school.increment!(:participation, by = 1)
+          puts "#{school.instnm} participation: #{school.participation}"
+
           user = User.last
           puts user.email
           flash[:success] = "Way to rep your school!"
