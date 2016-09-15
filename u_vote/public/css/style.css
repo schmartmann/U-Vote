@@ -209,3 +209,45 @@ iframe {
   text-decoration: none;
   overflow: auto;
 }
+
+.rankings {
+  margin: 0 8em;
+}
+
+#rankings-logo-div {
+  margin: -1em;
+}
+
+#rankings-copy {
+  font-size: 24px;
+  line-height: 32px;
+  margin: auto;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.uni-part{
+  width:450px;
+  font-family: Helvetica;
+  font-size: 14px;
+  color:#fff;
+  background-color:#ccc;
+  border-spacing: 5px 5px;
+  border:3px solid #ccc;
+}
+
+.uni-part th {
+  width:150px;
+  height:35px;
+  color:#000;
+  background-color: #fff;
+  border:1px solid #fff;
+}
+
+.uni-part td {
+  color:#000;
+  font-style:italic;
+  text-align:center;
+  background-color: #fff;
+  border:1px solid #fff;
+}

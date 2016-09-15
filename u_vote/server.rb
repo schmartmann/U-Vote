@@ -21,7 +21,10 @@ module Sinatra
     end
 
     get "/rankings" do
-      @schools = School.all
+      @schools = School.all.order(participation: :asc)
+      @average = School.average(:participation)
+      @rank = nil
+      puts "average for all schools is currently #{@average}"
       erb :rankings
     end
 
@@ -44,9 +47,6 @@ module Sinatra
           school = School.find_by(['webaddr ILIKE ?', "%#{@domain}%"])
           school.increment!(:participation, by = 1)
           puts "#{school.instnm} participation: #{school.participation}"
-
-          user = User.last
-          puts user.email
           flash[:success] = "Way to rep your school!"
           redirect "/"
         end
