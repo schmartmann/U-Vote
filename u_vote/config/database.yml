@@ -1,6 +1,6 @@
 development:
   adapter: postgresql
   database: schools_db
-  username: 'dasboogaloo'
-  password: 'nra4ever'
+  username: ENV["USER_NAME"]
+  password: ENV["USER_PASS"]
   host: localhost
