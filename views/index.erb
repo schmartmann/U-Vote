@@ -1,0 +1,53 @@
+<div class="image-container">
+  <img src="/img/UVoteLogo.png">
+</div>
+
+<div class="row">
+  <p id="logo">How civic-minded is your college ?</p>
+  <p>Enter your <i>ACADEMIC EMAIL address*</i></p>
+  <p>to be counted towards your school’s 2016 registration tally.</p>
+
+  <form method="POST" action="/validate">
+    <% if flash[:success] %>
+      <input id="email-input" value="<%=@email%>" name="email"></input>
+    <% elsif flash[:fail] %>
+      <input id="email-input" value="<%=@email%>" name="email"></input>
+    <% else %>
+      <input id="email-input" value="Ex: Homer.J.Simpson@SpringfieldUni.edu" name="email"></input>
+    <% end %>
+    <% if flash[:success] %>
+      <h4 id="status-instruction" style="color:white;">
+        <em><%=flash[:success]%></em>
+      </h4>
+    <% elsif flash[:fail] %>
+      <h4 id="status-instruction" style="color:red;">
+        <strong><%=flash[:fail]%></strong>
+      </h4>
+    <% elsif flash[:dupe]%>
+    <h4 id="status-instruction" style="color:red;">
+      <strong><%=flash[:dupe]%></strong>
+    </h4>
+    <% else %>
+      <h4 id="status-instruction">Click one of these buttons to validate email, and make your school count!</h4>
+    <% end %>
+      <div class="buttons-row">
+          <input class="status-buttons" id="am-i-registered" type="submit" name="status" value="Am I Registered?">
+            <!-- <a class="status-link" href="https://www.rockthevote.com/get-informed/elections/am-i-registered-to-vote/?source=rtv.com-topnavigation">Am I Registered?</a> -->
+          </input>
+          <input class="status-buttons" id="ive-registered" type="submit" name="status" value="I've Registered.">
+            <!-- <a class="status-link" href="/rankings">I've Registered.</a> -->
+          </input>
+          <input class="status-buttons" id="need-to-register" type="submit" name="status" value="I Need to Register!">
+            <!-- <a class="status-link"href="/register">I Need To Register.</a> -->
+          </input>
+      </div>
+  </form>
+</div>
+
+<div class="separator-title">
+</div>
+
+<footer>
+  <p>U-Vote is committed to increasing student voter registration and fostering civic engagement across<br> college campuses by harnessing the power of inter-collegiate cooperation and competition.</p>
+  <p id="star">*Your email is only used for verification purposes and will not be shared, or used for communication.</p>
+</footer>
