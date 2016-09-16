@@ -1,0 +1,20 @@
+<div class="rankings">
+  <div id="rankings-logo-div">
+    <img src="/img/UVoteLogo.png" style="border:none;height:113px;width:250px; " />
+  </div>
+
+  <h1 id="rankings-copy">
+    HIGHEST PROPORTION REGISTERED
+  </h1>
+  <h1 id="rankings-copy">
+     SO FAR 2016
+  </h1>
+
+  <table class="uni-part">
+    <tr><th>Rank</th><th>University</th><th> student registeration (relative to average)</th></tr>
+    <% @schools.each_with_index do |school, index| %>
+    <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%= school.participation %></td></tr>
+    <% end %>
+  </table>
+
+</div>

@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  database: schools_db
+  username: ENV["USER_NAME"]
+  password: ENV["USER_PASS"]
+  host: localhost
+
+production:
+  adapter: postgresql
+  database: schools_db
+  username: ENV["USER_NAME"]
+  password: ENV["USER_PASS"]
+  host: localhost
