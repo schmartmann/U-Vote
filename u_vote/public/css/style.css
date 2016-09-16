@@ -202,6 +202,7 @@ iframe {
 .participation-map p {
   text-align: center;
   font-size: 14px;
+  line-height: 6px;
 }
 
 .participation-map a {
@@ -250,4 +251,33 @@ iframe {
   text-align:center;
   background-color: #fff;
   border:1px solid #fff;
+}
+
+.separator-participation {
+  margin: auto;
+}
+
+.participant-holder {
+  margin-bottom: 1em;
+}
+
+.participant-holder img{
+  float: left;
+  margin: 20px 50px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.participant-holder h3 {
+  margin: 30px -18px;
+  display: inline-block;
+}
+
+.participant-holder p {
+  font-size: 14px;
+  /*display: inline-block;*/
+  margin: 0 3em 0 3em;
+  text-align: center;
 }
