@@ -8,7 +8,7 @@ gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
 gem 'sinatra-flash'
-gem 'pg', '0.12.2'
+gem 'pg'
 
 ruby '2.2.3'
 # gem "rails"
