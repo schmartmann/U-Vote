@@ -8,8 +8,7 @@ gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
 gem 'sinatra-flash'
+gem 'pg', '0.12.2'
 
-group :production do
-    gem 'pg', '0.12.2'
-end
+ruby '2.2.3'
 # gem "rails"

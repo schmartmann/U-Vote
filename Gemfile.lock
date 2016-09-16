@@ -59,5 +59,8 @@ DEPENDENCIES
   sinatra-flash
   thin
 
+RUBY VERSION
+   ruby 2.2.3p173
+
 BUNDLED WITH
-   1.12.5
+   1.13.1
