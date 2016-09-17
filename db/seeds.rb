@@ -3,7 +3,7 @@ require 'faker'
 
 School.destroy_all
 
-CSV.foreach("./lib/seeds/dummy.csv", {encoding: "UTF-8", headers: true, header_converters: :symbol, converters: :all}) do |row|
+CSV.foreach("./UniDataSanitized.csv", {encoding: "UTF-8", headers: true, header_converters: :symbol, converters: :all}) do |row|
   School.create(row.to_hash)
 
 end
