@@ -199,6 +199,10 @@ iframe {
   margin: 0 20px;
 }
 
+#register-iframe {
+  margin: 0;
+}
+
 .participation-map p {
   text-align: center;
   font-size: 14px;
