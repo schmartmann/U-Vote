@@ -49,6 +49,10 @@ body {
   color: red;
 }
 
+.nav ul li a {
+  color: silver;
+}
+
 #current-page {
   color: black;
   text-shadow: 0px;
