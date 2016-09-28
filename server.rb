@@ -8,11 +8,10 @@ require './models/school'
 module Sinatra
   class Server < Sinatra::Base
     enable :sessions
+
     register Sinatra::Flash
 
     get "/" do
-      @users = User.all
-      @email
       erb :index
     end
 
@@ -21,7 +20,7 @@ module Sinatra
     end
 
     get "/rankings" do
-      @schools = School.all.order(participation: :asc)
+      @schools = School.all.order(participation: :asc).take(10)
       @average = School.average(:participation)
       @rank = nil
       puts "average for all schools is currently #{@average}"
@@ -29,10 +28,13 @@ module Sinatra
     end
 
     post "/validate" do
-      domain = params[:email].match(/(?<=@)[\w+.-]+/)
+      fullDomain = params[:email].match(/(?<=@)[\w+.-]+/)
+      domainArr = fullDomain.to_s.split(".")
+      domain = "#{domainArr[domainArr.length-2]}.#{domainArr[domainArr.length-1]}"
       if School.exists?(['webaddr ILIKE ?', "%#{domain}%"]) and domain.nil? == false
         @domain = domain
         @email = params[:email]
+
         if User.exists?(['email ILIKE ?', "%#{@email}%"])
           flash[:dupe] = "Looks like you've already repped your school! Get the word out!"
           redirect "/"
@@ -60,5 +62,10 @@ module Sinatra
     get "/participation" do
       erb :participation
     end
+
+    get "/abroad" do
+      erb :abroad
+    end
+
   end #end of Sinatra model
 end

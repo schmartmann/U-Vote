@@ -2,7 +2,7 @@ require 'zlib'
 
 
 configure :production, :development do
-	db = URI.parse(ENV['DATABASE_URL'])
+	db = URI.parse(ENV['DATABASE_URL'] || 'postgres://dasboogaloo@localhost:5432/schools_db')
 
 	ActiveRecord::Base.establish_connection(
 			:adapter => db.scheme == 'postgres' ? 'postgresql' : db.scheme,

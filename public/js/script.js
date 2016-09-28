@@ -15,4 +15,18 @@ $('#email-input').on("click", function(){
    var buttons = $('.status-buttons');
 })
 
+var redirectToken = $(".redirect-token");
+
+if (redirectToken.length > 0){
+  console.log("token found")
+}
+
+am_i_registered.on("click", function(){
+  var url = 'http://www.rockthevote.com/get-informed/elections/am-i-registered-to-vote/'
+  var win = window.open(url, '_blank');
+  win.focus();
+
+})
+
+
 })();
