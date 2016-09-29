@@ -322,3 +322,10 @@ iframe {
   cursor: pointer;
   font-weight: 800;
 }
+
+#frame {
+  margin: 20px 105px;
+  zoom: 0.5;
+  width: 1150px;
+  height: 900px;
+}
