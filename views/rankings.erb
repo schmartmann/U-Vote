@@ -10,11 +10,49 @@
      SO FAR 2016
   </h1>
 
+  <br>
+
+<% if @user_school.nil? %>
   <table class="uni-part">
-    <tr><th>Rank</th><th>University</th><th> student registeration (relative to average)</th></tr>
+    <tr><th>Rank</th><th>University</th><th>Student Registeration (relative to average)</th></tr>
     <% @schools.each_with_index do |school, index| %>
     <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%= school.participation %></td></tr>
     <% end %>
   </table>
 
+<% else %>
+  <h1 id="rankings-copy">
+     Your school, so far!
+  </h1>
+
+  <table class="uni-part">
+    <tr><th>Rank</th><th>University</th><th>Student Registeration (relative to average)</th></tr>
+    <tr><th></th><td><%=@user_school.instnm%></td><td><%=@user_school.participation%></td></tr>
+  </table>
+    <br>
+
+  <h1 id="rankings-copy">
+     The Top 5 Schools, Nationally:
+  </h1>
+
+  <table class="uni-part">
+    <tr><th>Rank</th><th>University</th><th>Student Registeration (relative to average)</th></tr>
+    <% @top_five_schools.each_with_index do |school, index| %>
+    <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%= school.participation %></td></tr>
+    <% end %>
+  </table>
+    <br>
+
+
+  <h1 id="rankings-copy">
+     All schools:
+  </h1>
+
+  <table class="uni-part">
+    <tr><th>Rank</th><th>University</th><th>Student Registeration (relative to average)</th></tr>
+    <% @schools.each_with_index do |school, index| %>
+    <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%= school.participation %></td></tr>
+    <% end %>
+  </table>
+<% end %>
 </div>

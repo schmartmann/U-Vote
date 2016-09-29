@@ -25,8 +25,18 @@ am_i_registered.on("click", function(){
   var url = 'http://www.rockthevote.com/get-informed/elections/am-i-registered-to-vote/'
   var win = window.open(url, '_blank');
   win.focus();
-
 })
 
+need_to_register.on("click", function(){
+  var url = '/register'
+  var win = window.open(url, '_blank');
+  win.focus();
+})
+
+ive_registered.on("click", function(){
+  var url = "/rankings"
+  var win = window.open(url, '_blank');
+  win.focus();
+})
 
 })();

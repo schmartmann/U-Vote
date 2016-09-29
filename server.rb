@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'sinatra/contrib'
 require 'sinatra/flash'
 require './config/environments'
 require './models/user'
@@ -7,11 +8,12 @@ require './models/school'
 
 module Sinatra
   class Server < Sinatra::Base
-    enable :sessions
-
+    register Sinatra::Contrib
+    helpers Sinatra::Cookies
     register Sinatra::Flash
 
     get "/" do
+      cookies[:something] = "foo"
       erb :index
     end
 
@@ -20,9 +22,14 @@ module Sinatra
     end
 
     get "/rankings" do
+      puts "cookies domain in /rankgins: #{cookies[:domain]}"
+      @user_domain = cookies[:domain]
+      user_school = School.where('webaddr ILIKE ?', "%#{@user_domain}%").limit(1)
+      @user_school = user_school[0]
       @schools = School.all.order(participation: :asc).take(10)
       @average = School.average(:participation)
       @rank = nil
+      @top_five_schools = School.all.order(participation: :asc).take(5)
       puts "average for all schools is currently #{@average}"
       erb :rankings
     end
@@ -49,6 +56,9 @@ module Sinatra
           school = School.find_by(['webaddr ILIKE ?', "%#{@domain}%"])
           school.increment!(:participation, by = 1)
           puts "#{school.instnm} participation: #{school.participation}"
+
+          cookies[:domain] = @domain
+          puts "cookies.domain values = #{cookies[:domain]}"
           flash[:success] = "Way to rep your school!"
           redirect "/"
         end
