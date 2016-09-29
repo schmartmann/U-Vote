@@ -290,3 +290,35 @@ iframe {
   margin: 0 3em 0 3em;
   text-align: center;
 }
+
+.search-bar {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.search_form {
+  border: 1px solid #41a2be;
+  background:#ccc;
+  height: 50px;
+  width: 330px;
+  opacity: 1;
+}
+
+.search_form input {
+  color: #41a2be;
+}
+
+.school-search-button {
+  color: #41a2be;
+  opacity: 1;
+  height: 54px;
+  width: 100px;
+  background:#ccc;
+  border: 2px solid #41a2be;
+  font-weight: 500;
+}
+
+.school-search-button:hover {
+  cursor: pointer;
+  font-weight: 800;
+}

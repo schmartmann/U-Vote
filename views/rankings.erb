@@ -4,8 +4,31 @@
   </div>
 
   <h1 id="rankings-copy">
-    HIGHEST PROPORTION REGISTERED
+    Check out how your school ranks:
   </h1>
+
+  <% if @searchResults.nil? %>
+    <form method="get" class="search-bar" action="/rankings">
+      <input class="search_form" name="search_form" type="text">
+      <input type="submit" class="school-search-button" value="Search">
+    </form>
+  <% else %>
+    <form method="get" class="search-bar" action="/rankings">
+      <input class="search_form" name="search_form" type="text" value="Search schools by name, zip, or county!">
+      <input type="submit" class="school-search-button" value="Search">
+    </form>
+    <h1 id="rankings-copy">
+       Search Results:
+    </h1>
+
+    <table class="uni-part">
+      <tr><th>Rank</th><th>University</th><th>Student Registeration (relative to average)</th></tr>
+      <% @searchResults.each_with_index do |school, index| %>
+      <tr><th><%=index + 1%></th><td><%=school[:school]%></td><td><%= school[:participation].to_i/@average.to_i%></td></tr>
+      <% end %>
+    </table>
+  <% end %>
+
   <h1 id="rankings-copy">
      SO FAR 2016
   </h1>
@@ -16,7 +39,7 @@
   <table class="uni-part">
     <tr><th>Rank</th><th>University</th><th>Student Registeration (relative to average)</th></tr>
     <% @schools.each_with_index do |school, index| %>
-    <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%= school..participation.to_i/@average.to_i%></td></tr>
+    <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%= school.participation.to_i/@average.to_i%></td></tr>
     <% end %>
   </table>
 

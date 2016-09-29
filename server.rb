@@ -31,8 +31,25 @@ module Sinatra
       @rank = nil
       @top_five_schools = School.all.order(participation: :asc).take(5)
       puts "average for all schools is currently #{@average}"
+
+      if params[:search_form]
+        puts "search params: #{params[:search_form]}"
+        results = School.search(params[:search_form]).order("participation ASC")
+        @searchResults = []
+        results.each do |result|
+          puts "#{result.instnm}: #{result.participation} (#{result.countynm})"
+          @searchResults.push({
+            school:result.instnm,
+            participation: result.participation,
+            countynm: result.countynm
+            })
+        end
+        puts "search results: #{@searchResults}"
+      end
+
       erb :rankings
     end
+
 
     post "/validate" do
       fullDomain = params[:email].match(/(?<=@)[\w+.-]+/)

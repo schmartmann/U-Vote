@@ -39,4 +39,11 @@ ive_registered.on("click", function(){
   win.focus();
 })
 
+$(".search_form").on("click", function(){
+  if (this.value === "Search schools by name, zip, or county!") {
+       this.value = '';
+       $(this).css("opacity", "1")
+   };
+})
+
 })();
