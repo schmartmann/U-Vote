@@ -16,7 +16,7 @@
   <table class="uni-part">
     <tr><th>Rank</th><th>University</th><th>Student Registeration (relative to average)</th></tr>
     <% @schools.each_with_index do |school, index| %>
-    <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%= school.participation %></td></tr>
+    <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%= school..participation.to_i/@average.to_i%></td></tr>
     <% end %>
   </table>
 
@@ -27,7 +27,7 @@
 
   <table class="uni-part">
     <tr><th>Rank</th><th>University</th><th>Student Registeration (relative to average)</th></tr>
-    <tr><th></th><td><%=@user_school.instnm%></td><td><%=@user_school.participation%></td></tr>
+    <tr><th><%=@user_school.id%></th><td><%=@user_school.instnm%></td><td><%=@user_school.participation.to_i/@average.to_i%></td></tr>
   </table>
     <br>
 
@@ -38,7 +38,7 @@
   <table class="uni-part">
     <tr><th>Rank</th><th>University</th><th>Student Registeration (relative to average)</th></tr>
     <% @top_five_schools.each_with_index do |school, index| %>
-    <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%= school.participation %></td></tr>
+    <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%= school.participation.to_i/@average.to_i %></td></tr>
     <% end %>
   </table>
     <br>
@@ -51,7 +51,7 @@
   <table class="uni-part">
     <tr><th>Rank</th><th>University</th><th>Student Registeration (relative to average)</th></tr>
     <% @schools.each_with_index do |school, index| %>
-    <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%= school.participation %></td></tr>
+    <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%= school.participation.to_i/@average.to_i %></td></tr>
     <% end %>
   </table>
 <% end %>
