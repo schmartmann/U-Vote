@@ -9,7 +9,7 @@ body {
 .container {
   background: url('/img/PhotoGray_bg_c-1.jpg') repeat scroll top left;
   margin: 0 auto;
-  height: 1000px;
+  height: auto;
   width: 700px;
   overflow: scroll;
 }
@@ -18,7 +18,7 @@ body {
   background: url('/img/Darkroom_spotlight.jpg');
   margin: 0 auto;
   width: 700px;
-  height: 800px;
+  height: auto;
 }
 
 .nav {
@@ -348,6 +348,6 @@ iframe {
 
 .all-schools {
   height: 450px;
-  width: auto; 
+  width: auto;
   overflow: auto;
 }
