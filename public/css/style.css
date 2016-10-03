@@ -301,7 +301,7 @@ iframe {
   background:#ccc;
   height: 50px;
   width: 330px;
-  opacity: 1;
+  /*opacity: 1;*/
 }
 
 .search_form input {
