@@ -27,7 +27,7 @@ module Sinatra
       user_school = School.where('webaddr ILIKE ?', "%#{@user_domain}%").limit(1)
       @user_school = user_school[0]
       @schools = School.all.order(participation: :asc).take(10)
-      @average = School.average(:participation)
+      @average = School.average(:participation) || 1
       @rank = nil
       @top_five_schools = School.all.order(participation: :asc).take(5)
       puts "average for all schools is currently #{@average}"
