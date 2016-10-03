@@ -223,7 +223,7 @@ iframe {
 .rankings {
   margin: 0 8em;
   height: auto;
-  overflow: auto; 
+  overflow: auto;
 }
 
 #rankings-logo-div {
@@ -330,4 +330,24 @@ iframe {
   zoom: 0.5;
   width: 1150px;
   height: 900px;
+}
+
+.social-icons img {
+  padding: 0px;
+  height: 45px;
+  width: 45px;
+  display: inline;
+  margin: 0 auto;
+}
+
+.social-icons {
+  margin: 10px auto;
+  height: 45px;
+  width: 100px;
+}
+
+.all-schools {
+  height: 450px;
+  width: auto; 
+  overflow: auto;
 }

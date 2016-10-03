@@ -2,6 +2,15 @@
   <div id="rankings-logo-div">
     <img src="/img/UVoteLogo.png" style="border:none;height:113px;width:250px; " />
   </div>
+<div class="social-icons">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=u-vote.org&amp;source=fb-share" title="https://www.facebook.com/sharer/sharer.php?u=u-vote.org&amp;source=fb-share" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;">
+      <img src="/img/share_fb.png" alt=""/>
+    </a>
+
+    <a href="https://twitter.com/home?status=I've%20registered%20to%20vote.%20Have%20you?%20Add%20yourself%20to%20your%20University's%20tally%20and%20see%20how%20it%20ranks:%20u-vote.org" title="https://twitter.com/home?status=I've registered to vote. Have you? Add yourself to your University's tally and see how it ranks: u-vote.org" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;">
+      <img src="/img/share_twitter.png" alt=""/>
+    </a>
+</div>
 
   <h1 id="rankings-copy">
     Check out how your school ranks:
@@ -66,16 +75,17 @@
   </table>
     <br>
 
+  <div class="all-schools">
+    <h1 id="rankings-copy">
+       All schools:
+    </h1>
 
-  <h1 id="rankings-copy">
-     All schools:
-  </h1>
-
-  <table class="uni-part">
-    <tr><th>Rank</th><th>University</th><th>Student Registeration (relative to average)</th></tr>
-    <% @schools.each_with_index do |school, index| %>
-    <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%= school.participation.to_i/@average.to_i %></td></tr>
-    <% end %>
-  </table>
+    <table class="uni-part">
+      <tr><th>Rank</th><th>University</th><th>Student Registeration (relative to average)</th></tr>
+      <% @schools.each_with_index do |school, index| %>
+      <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%= school.participation.to_i/@average.to_i %></td></tr>
+      <% end %>
+    </table>
+  </div>
 <% end %>
 </div>

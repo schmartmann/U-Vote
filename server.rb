@@ -27,7 +27,7 @@ module Sinatra
       @user_domain = cookies[:domain]
       user_school = School.where('webaddr ILIKE ?', "%#{@user_domain}%").limit(1)
       @user_school = user_school[0]
-      @schools = School.all.order(participation: :asc).take(10)
+      @schools = School.all.order(participation: :asc)
       @average = School.average(:participation) || 1
       @rank = nil
       @top_five_schools = School.all.order(participation: :asc).take(5)
