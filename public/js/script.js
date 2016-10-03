@@ -29,18 +29,14 @@ am_i_registered.on("click", function(){
 
 need_to_register.on("click", function(){
   var url = '/register'
-  this.setTimeout(function(){
-    var win = window.open(url, '_blank');
-    win.focus();
-  }, 2000)
+  var win = window.open(url, '_blank');
+  win.focus();
 })
 
-ive_registered.on("click", function(e){
+ive_registered.on("click", function(){
   var url = "/rankings"
-  e.setTimeout(function(){
-    var win = window.open(url, '_blank');
-    win.focus();
-  }, 2000)
+  var win = window.open(url, '_blank');
+  win.focus();
 })
 
 $(".search_form").on("click", function(){
