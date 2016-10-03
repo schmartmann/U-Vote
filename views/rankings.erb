@@ -24,7 +24,7 @@
     <table class="uni-part">
       <tr><th>Rank</th><th>University</th><th>Student Registeration (relative to average)</th></tr>
       <% @searchResults.each_with_index do |school, index| %>
-      <tr><th><%=index + 1%></th><td><%=school[:school]%></td><td><%= school[:participation].to_i/@average.to_i%></td></tr>
+      <tr><th></th><td><%=school[:school]%></td><td><%= school[:participation].to_i/@average.to_i%></td></tr>
       <% end %>
     </table>
   <% end %>
