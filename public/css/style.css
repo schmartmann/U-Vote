@@ -222,6 +222,8 @@ iframe {
 
 .rankings {
   margin: 0 8em;
+  height: auto;
+  overflow: auto; 
 }
 
 #rankings-logo-div {

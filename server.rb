@@ -8,6 +8,7 @@ require './models/school'
 
 module Sinatra
   class Server < Sinatra::Base
+    enable :sessions
     register Sinatra::Contrib
     helpers Sinatra::Cookies
     register Sinatra::Flash
@@ -55,6 +56,7 @@ module Sinatra
       fullDomain = params[:email].match(/(?<=@)[\w+.-]+/)
       domainArr = fullDomain.to_s.split(".")
       domain = "#{domainArr[domainArr.length-2]}.#{domainArr[domainArr.length-1]}"
+      # this checks to see if there is a school associated with the user's email domain.
       if School.exists?(['webaddr ILIKE ?', "%#{domain}%"]) and domain.nil? == false
         @domain = domain
         @email = params[:email]
