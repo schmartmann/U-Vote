@@ -11,7 +11,6 @@ body {
   margin: 0 auto;
   height: auto;
   width: 700px;
-  overflow: scroll;
 }
 
 .spotlight {
@@ -223,7 +222,6 @@ iframe {
 .rankings {
   margin: 0 8em;
   height: auto;
-  overflow: auto;
 }
 
 #rankings-logo-div {
@@ -239,7 +237,7 @@ iframe {
 }
 
 .uni-part{
-  width:450px;
+  width:475px;
   font-family: Helvetica;
   font-size: 14px;
   color:#fff;
@@ -296,13 +294,14 @@ iframe {
 .search-bar {
   margin-top: 10px;
   margin-bottom: 20px;
+  width:475px;
 }
 
 .search_form {
   border: 1px solid #41a2be;
   background:#ccc;
   height: 50px;
-  width: 330px;
+  width: 365px;
   /*opacity: 1;*/
 }
 
@@ -348,6 +347,7 @@ iframe {
 
 .all-schools {
   height: 450px;
-  width: auto;
-  overflow: auto;
+  width: 475px;
+  overflow-y: scroll;
+  padding-right: 17px;
 }

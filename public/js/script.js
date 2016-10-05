@@ -29,14 +29,30 @@ am_i_registered.on("click", function(){
 
 need_to_register.on("click", function(){
   var url = '/register'
-  var win = window.open(url, '_blank');
-  win.focus();
+
+  if ($("#email-input").val() === "Ex: Homer.J.Simpson@SpringfieldUni.edu"){
+    console.log("bad email")
+  } else if (("#email-input").val() === "") {
+    console.log("bad email")
+  } else {
+    var win = window.open(url, '_blank');
+    win.focus();
+  }
 })
 
 ive_registered.on("click", function(){
   var url = "/rankings"
-  var win = window.open(url, '_blank');
-  win.focus();
+
+  if ($("#email-input").val() === "Ex: Homer.J.Simpson@SpringfieldUni.edu"){
+    console.log("bad email")
+  } else if (("#email-input").val() === "") {
+    console.log("bad email")
+  } else if (("#email-input").val() === ".") {
+    console.log("bad email")
+  } else {
+    var win = window.open(url, '_blank');
+    win.focus();
+  }
 })
 
 $(".search_form").on("click", function(){
