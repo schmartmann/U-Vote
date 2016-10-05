@@ -20,6 +20,14 @@ body {
   height: auto;
 }
 
+.redirect-token a {
+  color: rgb(255, 255, 255);
+}
+
+.redirect-token a:hover {
+  font-weight: 800; 
+}
+
 .nav {
   color: silver;
   position:  relative;

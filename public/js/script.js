@@ -15,11 +15,6 @@ $('#email-input').on("click", function(){
    var buttons = $('.status-buttons');
 })
 
-var redirectToken = $(".redirect-token");
-
-if (redirectToken.length > 0){
-  console.log("token found")
-}
 
 am_i_registered.on("click", function(){
   var url = 'http://www.rockthevote.com/get-informed/elections/am-i-registered-to-vote/'
@@ -46,8 +41,6 @@ ive_registered.on("click", function(){
   if ($("#email-input").val() === "Ex: Homer.J.Simpson@SpringfieldUni.edu"){
     console.log("bad email")
   } else if (("#email-input").val() === "") {
-    console.log("bad email")
-  } else if (("#email-input").val() === ".") {
     console.log("bad email")
   } else {
     var win = window.open(url, '_blank');

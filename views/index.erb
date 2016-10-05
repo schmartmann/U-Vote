@@ -26,7 +26,7 @@
     <% end %>
     <% if flash[:success] %>
       <h4 id="status-instruction" style="color:white;">
-        <em class="redirect-token"><%=flash[:success]%></em>
+        <em class="redirect-token"><%=flash[:success]%> Check out your school's progress <a href="/rankings">here</a></em>
       </h4>
     <% elsif flash[:fail] %>
       <h4 id="status-instruction" style="color:red;">
