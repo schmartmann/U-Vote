@@ -37,19 +37,26 @@ module Sinatra
         @user_school = user_school[0]
       end
       @schools = School.all.order(participation: :asc)
-      @average = School.average(:participation) || 1
-      @rank = nil
+      average_participation = School.average(:participation).truncate(2).to_s('F').to_f
+      average_enrollment = School.average(:enrollment2015).truncate(2).to_s('F').to_f
+      rravg = (average_participation.to_f / average_enrollment.to_f).to_f
+      puts "rravg: #{rravg}"
+      @RRavg = rravg
       @top_five_schools = School.all.order(participation: :asc).take(5)
-      puts "average for all schools is currently #{@average}"
+      puts "average for all schools is currently #{@RRavg}"
 
       if params[:search_form]
         puts "search params: #{params[:search_form]}"
         results = School.search(params[:search_form]).order("participation ASC")
         @searchResults = []
         results.each do |result|
-          puts "#{result.instnm}: #{result.participation} (#{result.countynm})"
+          puts "#{result.instnm}: participation: #{result.participation}, enrollment: #{result.enrollment2015} (#{result.countynm})"
+
+          result.enrollment2015 == nil ? result.enrollment2015 = 0 : result.enrollment2015
+
           @searchResults.push({
             school:result.instnm,
+            enrollment2015:result.enrollment2015,
             participation: result.participation,
             countynm: result.countynm
             })
