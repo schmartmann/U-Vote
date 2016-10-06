@@ -371,30 +371,3 @@ iframe {
   overflow-y: scroll;
   padding-right: 17px;
 }
-
-@media (max-width: 580px){
-  .container {
-    zoom: 2;
-    width: 100%;
-  }
-
-  #views {
-    zoom: 1.5;
-  }
-
-  .id-tag {
-    width: 100%;
-  }
-
-  #dev-portfolio {
-    zoom:2;
-    width:75%;
-  }
-  .project-desc {
-    font-size: 0.3em;
-  }
-
-  .project-desc li {
-    margin-left: -2.5em;
-  }
-}

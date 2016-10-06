@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'byebug'
 require 'sinatra/activerecord'
 require 'sinatra/contrib'
 require 'sinatra/flash'
@@ -8,13 +9,15 @@ require './models/school'
 
 module Sinatra
   class Server < Sinatra::Base
+    use Rack::Session::Cookie, :key => 'rack.session',
+                           :path => '/',
+                           :secret => 'your_secret'
     enable :sessions
-    register Sinatra::Contrib
-    helpers Sinatra::Cookies
+    set :sessions, :domain => '.u-vote.org'
     register Sinatra::Flash
 
     get "/" do
-      cookies[:something] = "foo"
+      puts "session domain: #{session[:user_domain]}"
       erb :index
     end
 
@@ -23,10 +26,16 @@ module Sinatra
     end
 
     get "/rankings" do
-      puts "cookies domain in /rankgins: #{cookies[:domain]}"
-      @user_domain = cookies[:domain]
-      user_school = School.where('webaddr ILIKE ?', "%#{@user_domain}%").limit(1)
-      @user_school = user_school[0]
+
+      puts "sessions domain in /rankings: #{session[:user_domain]}"
+      @user_domain = session[:user_domain]
+      if @user_domain.nil?
+        puts "this domain is nil"
+        @user_school = nil
+      else
+        user_school = School.where('webaddr ILIKE ?', "%#{@user_domain}%").limit(1)
+        @user_school = user_school[0]
+      end
       @schools = School.all.order(participation: :asc)
       @average = School.average(:participation) || 1
       @rank = nil
@@ -47,7 +56,6 @@ module Sinatra
         end
         puts "search results: #{@searchResults}"
       end
-
       erb :rankings
     end
 
@@ -91,8 +99,10 @@ module Sinatra
               school.increment!(:participation, by = 1)
               puts "#{school.instnm} participation: #{school.participation}"
 
-              cookies[:domain] = @domain
-              puts "cookies.domain values = #{cookies[:domain]}"
+              session[:user_domain] = @domain
+              # cookies[:user_domain] = @domain
+              # puts "cookies.domain values = #{cookies[:user_domain]}"
+              puts "sessions.domain values = #{session[:user_domain]}"
               flash[:success] = "Way to rep your school!"
               redirect "/"
             end
@@ -110,7 +120,7 @@ module Sinatra
     end
 
     get "/abroad" do
-      erb :abroad
+      redirect "https://register.avaaz.org/"
     end
 
   end #end of Sinatra model

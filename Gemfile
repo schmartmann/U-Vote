@@ -10,6 +10,7 @@ gem "sinatra-activerecord"
 gem "rake"
 gem 'sinatra-flash'
 gem 'pg'
+gem "byebug"
 
 ruby '2.2.3'
 # gem "rails"
