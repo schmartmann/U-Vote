@@ -120,7 +120,8 @@ module Sinatra
     end
 
     get "/abroad" do
-      redirect "https://register.avaaz.org/"
+      # redirect "https://register.avaaz.org/"
+      erb :abroad
     end
 
   end #end of Sinatra model
