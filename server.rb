@@ -68,35 +68,39 @@ module Sinatra
         puts "This is the full domain: #{fullDomain}"
         domainArr = fullDomain.to_s.split(".")
         domain = "#{domainArr[domainArr.length-2]}.#{domainArr[domainArr.length-1]}"
+        if domain == "."
+          domain = nil
+        else
         # this checks to see if there is a school associated with the user's email domain.
-        if School.exists?(['webaddr ILIKE ?', "%#{domain}%"]) and domain.nil? == false
-          @domain = domain
-          @email = params[:email]
+          if School.exists?(['webaddr ILIKE ?', "%#{domain}%"]) and domain.nil? == false
+            @domain = domain
+            @email = params[:email]
 
-          if User.exists?(['email ILIKE ?', "%#{@email}%"])
-            flash[:dupe] = "Looks like you've already repped your school! Get the word out!"
-            redirect "/"
-          else
-            @status = params[:status]
+            if User.exists?(['email ILIKE ?', "%#{@email}%"])
+              flash[:dupe] = "Looks like you've already repped your school! Get the word out!"
+              redirect "/"
+            else
+              @status = params[:status]
 
-            @user = User.create(
-            email: @email,
-            domain: @domain,
-            status:@status)
+              @user = User.create(
+              email: @email,
+              domain: @domain,
+              status:@status)
 
-            school = School.find_by(['webaddr ILIKE ?', "%#{@domain}%"])
-            school.increment!(:participation, by = 1)
-            puts "#{school.instnm} participation: #{school.participation}"
+              school = School.find_by(['webaddr ILIKE ?', "%#{@domain}%"])
+              school.increment!(:participation, by = 1)
+              puts "#{school.instnm} participation: #{school.participation}"
 
-            cookies[:domain] = @domain
-            puts "cookies.domain values = #{cookies[:domain]}"
-            flash[:success] = "Way to rep your school!"
-            redirect "/"
-          end
+              cookies[:domain] = @domain
+              puts "cookies.domain values = #{cookies[:domain]}"
+              flash[:success] = "Way to rep your school!"
+              redirect "/"
+            end
         else
           puts "failed email is #{@email}"
           flash[:fail] = "Oops! Make sure you're using your academic email address."
           redirect "/"
+        end
         end
       end
     end
