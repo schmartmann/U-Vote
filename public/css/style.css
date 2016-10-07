@@ -371,3 +371,9 @@ iframe {
   overflow-y: scroll;
   padding-right: 17px;
 }
+
+@media (max-width: 580px){
+  .container {
+    zoom: 1.4;
+  }
+}
