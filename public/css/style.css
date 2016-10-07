@@ -374,6 +374,9 @@ iframe {
 
 @media (max-width: 580px){
   .container {
-    zoom: 1.4;
+    zoom: 1.3;
+  }
+  .spotlight {
+    zoom: 1.3
   }
 }
