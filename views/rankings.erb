@@ -70,7 +70,7 @@
   <table class="uni-part">
     <tr><th>Rank</th><th>University</th><th>Student Registration Rate (relative to average)</th></tr>
     <% @top_five_schools.each_with_index do |school, index| %>
-    <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%=((school.participation.to_f / school.enrollment2015.to_f) / @RRavg).round(3)%>%</td></tr>
+    <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%=((school.participation.to_f / (school.enrollment2015 == nil ? 1 : school.enrollment2015.to_f)) / @RRavg).round(3)%>%</td></tr>
     <% end %>
   </table>
     <br>
@@ -83,7 +83,7 @@
       <table class="uni-part">
         <tr><th>Rank</th><th>University</th><th>Student Registration Rate (relative to average)</th></tr>
         <% @schools.each_with_index do |school, index| %>
-        <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%=((school.participation.to_f / school.enrollment2015.to_f) / @RRavg).round(3)%>%</td></tr>
+        <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%=((school.participation.to_f / (school.enrollment2015 == nil ? 1 : school.enrollment2015.to_f)) / @RRavg).round(3)%>%</td></tr>
         <% end %>
       </table>
     </div>

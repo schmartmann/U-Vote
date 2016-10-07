@@ -52,15 +52,16 @@ module Sinatra
         results.each do |result|
           puts "#{result.instnm}: participation: #{result.participation}, enrollment: #{result.enrollment2015} (#{result.countynm})"
 
-          result.enrollment2015 == nil ? result.enrollment2015 = 0 : result.enrollment2015
+          result.enrollment2015 == nil ? @enrollment = 1 : @enrollment = result.enrollment2015
 
           @searchResults.push({
             school:result.instnm,
-            enrollment2015:result.enrollment2015,
+            enrollment2015: @enrollment,
             participation: result.participation,
             countynm: result.countynm
             })
         end
+        byebug
         puts "search results: #{@searchResults}"
       end
       erb :rankings
