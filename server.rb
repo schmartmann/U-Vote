@@ -42,7 +42,7 @@ module Sinatra
       rravg = (average_participation.to_f / average_enrollment.to_f).to_f
       puts "rravg: #{rravg}"
       @RRavg = rravg
-      @top_five_schools = School.all.order(participation: :asc).take(5)
+      @top_five_schools = School.all.order(:participation).take(5)
       puts "average for all schools is currently #{@RRavg}"
 
       if params[:search_form]
