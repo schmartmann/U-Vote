@@ -372,6 +372,9 @@ iframe {
   padding-right: 17px;
 }
 
+.rate-legend {
+  font-size: 12px; 
+}
 @media (max-width: 580px){
   /*.container {
     zoom: 1.3;

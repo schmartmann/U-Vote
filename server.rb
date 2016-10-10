@@ -36,13 +36,13 @@ module Sinatra
         user_school = School.where('webaddr ILIKE ?', "%#{@user_domain}%").limit(1)
         @user_school = user_school[0]
       end
-      @schools = School.all.order(participation: :asc)
+      @schools = School.order(participation: :desc)
       average_participation = School.average(:participation).truncate(2).to_s('F').to_f
       average_enrollment = School.average(:enrollment2015).truncate(2).to_s('F').to_f
       rravg = (average_participation.to_f / average_enrollment.to_f).to_f
       puts "rravg: #{rravg}"
       @RRavg = rravg
-      @top_five_schools = School.order("participation ASC").take(10)
+      @top_five_schools = School.order("participation ASC limit 5").reverse
       puts "average for all schools is currently #{@RRavg}"
 
       if params[:search_form]
@@ -61,7 +61,6 @@ module Sinatra
             countynm: result.countynm
             })
         end
-        byebug
         puts "search results: #{@searchResults}"
       end
       erb :rankings
