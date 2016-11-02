@@ -29,7 +29,7 @@
     </h1>
 
     <table class="uni-part">
-      <tr><th></th><th>University</th><th>Student Registration Rate (relative to average)*</th></tr>
+      <tr><th></th><th>University</th><th>Student Voter Participation Rate (relative to average)*</th></tr>
       <% @searchResults.each_with_index do |school, index| %>
       <tr><th></th><td><%=school[:school]%></td><td><%=(((school[:participation].to_f / school[:enrollment2015].to_f)/ @RRavg)).round(3)%></td></tr>
       <% end %>
@@ -53,7 +53,7 @@
   </h1>
 
   <table class="uni-part">
-    <tr><th>Rank</th><th>University</th><th>Student Registration Rate (relative to average)*</th></tr>
+    <tr><th>Rank</th><th>University</th><th>Student Voter Participation Rate (relative to average)*</th></tr>
     <tr><th><%=@user_school.id%></th><td><%=@user_school.instnm%></td><td><%=(((@user_school.participation.to_f / @user_school.enrollment2015.to_f)/ @RRavg)).round(3)%>*</td></tr>
     <p>
       *Rates are calculated relative to the average school and are corrected for 2015 student body size.
@@ -77,7 +77,7 @@
   </h1>
 
   <table class="uni-part">
-    <tr><th>Rank</th><th>University</th><th>Student Registration Rate (relative to average)*</th></tr>
+    <tr><th>Rank</th><th>University</th><th>Student Voter Participation Rate (relative to average)*</th></tr>
     <% @top_five_schools.each_with_index do |school, index| %>
     <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%=(((school.participation.to_f / (school.enrollment2015 == nil ? 1 : school.enrollment2015.to_f)) / @RRavg)).round(3)%></td></tr>
     <% end %>
@@ -94,7 +94,7 @@
       </h1>
 
       <table class="uni-part">
-        <tr><th>Rank</th><th>University</th><th>Student Registration Rate (relative to average)*</th></tr>
+        <tr><th>Rank</th><th>University</th><th>Student Voter Participation Rate (relative to average)*</th></tr>
         <% @schools.each_with_index do |school, index| %>
         <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td><%=(((school.participation.to_f / (school.enrollment2015 == nil ? 1 : school.enrollment2015.to_f)) / @RRavg)).round(3)%></td></tr>
         <% end %>
