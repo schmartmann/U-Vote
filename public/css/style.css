@@ -139,7 +139,7 @@ input:focus{
   font-size: 13px;
   font-weight: 500;
   height: 60px;
-  width: 160px;
+  width: 185px;
   /*opacity: 0;*/
   /*transition: opacity 1s;*/
 }
@@ -377,7 +377,7 @@ iframe {
 }
 
 #ive-registered {
-  font-size: 9px; 
+  font-size: 9px;
 }
 
 @media (max-width: 580px){
