@@ -32,11 +32,15 @@
       <tr><th></th><th>University</th><th>Student Voter Participation Rate (relative to average)*</th></tr>
       <% @searchResults.each_with_index do |school, index| %>
       <tr><th></th><td><%=school[:school]%></td><td>
-        <%=
-        (
-        (school[:participation].to_f / school[:enrollment2015].to_f)/ @RRavg
-        ).round(2)
-        %></td></tr>
+        <% if school[:participation] == 0 %>
+          Be the first to rep your school!</td></tr>
+        <% else %>
+          <%=
+          (
+          (school[:participation].to_f / school[:enrollment2015].to_f)/ @RRavg
+          ).round(2)
+          %></td></tr>
+        <% end %>
       <% end %>
     </table>
     <p class="rate-legend">
@@ -113,10 +117,14 @@
         <tr><th>Rank</th><th>University</th><th>Student Voter Participation Rate (relative to average)*</th></tr>
         <% @schools.each_with_index do |school, index| %>
         <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td>
-          <%=
-          ((school.participation.to_f / school.enrollment2015.to_f) / @RRavg).round(2)
-          %></td></tr>
-        <% end %>
+          <% if school.participation == 0 %>
+            Be the first to rep your school!</td></tr>
+          <% else %>
+            <%=
+            ((school.participation.to_f / school.enrollment2015.to_f) / @RRavg).round(2)
+            %></td></tr>
+        <%end%>
+        <%end%>
       </table>
     </div>
 </div>

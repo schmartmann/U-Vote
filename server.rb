@@ -37,8 +37,9 @@ module Sinatra
         @user_school = user_school[0]
       end
       @schools = School.order(participation: :desc)
+      @schools_participation = School.where("participation > 0")
       @schools_avg = []
-      @schools.each do |school|
+      @schools_participation.each do |school|
         @schools_avg.push(
           school.participation.to_f / school.enrollment2015.to_f
         )
