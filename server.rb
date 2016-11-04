@@ -56,7 +56,7 @@ module Sinatra
           puts "#{result.instnm}: participation: #{result.participation}, enrollment: #{result.enrollment2015} (#{result.countynm})"
           @searchResults.push({
             school:result.instnm,
-            enrollment2015: @enrollment,
+            enrollment2015: result.enrollment2015,
             participation: result.participation,
             countynm: result.countynm
             })
