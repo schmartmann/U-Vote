@@ -95,7 +95,7 @@
     <tr><th>Rank</th><th>University</th><th>Student Voter Participation Rate (relative to average)*</th></tr>
   <% @top_five_schools.each_with_index do |school, index| %>
             <tr><th><%=index + 1%></th><td><%=school["instnm"]%></td><td>
-              <% if school["participation"] == 0 %>
+              <% if school["average_participation"].to_f == 0.0 %>
                 Be the first to rep your school!</td></tr>
               <% else %>
                 <%=
@@ -120,7 +120,7 @@
         <tr><th>Rank</th><th>University</th><th>Student Voter Participation Rate (relative to average)*</th></tr>
         <% @schools.each_with_index do |school, index| %>
         <tr><th><%=index + 1%></th><td><%=school["instnm"]%></td><td>
-          <% if school["participation"] == 0 %>
+          <% if school["average_participation"].to_f == 0.0 %>
             Be the first to rep your school!</td></tr>
           <% else %>
             <%=
