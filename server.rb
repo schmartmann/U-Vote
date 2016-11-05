@@ -36,7 +36,12 @@ module Sinatra
         user_school = School.where('webaddr ILIKE ?', "%#{@user_domain}%").limit(1)
         @user_school = user_school[0]
       end
-      @schools = School.order(participation: :desc)
+
+      sql = "SELECT instnm,ROUND((participation)::numeric,4),ROUND((enrollment2015)::numeric,4),ROUND((participation)::numeric,10)/ ROUND((enrollment2015)::numeric,10) AS average_participation FROM schools ORDER BY average_participation DESC;"
+      top_5_sql = "SELECT instnm,ROUND((participation)::numeric,4),ROUND((enrollment2015)::numeric,4),ROUND((participation)::numeric,10)/ ROUND((enrollment2015)::numeric,10) AS average_participation FROM schools ORDER BY average_participation DESC LIMIT 5"
+      @schools = ActiveRecord::Base.connection.execute(sql).to_a
+      # @schools = School.order(participation: :desc)
+      byebug
       @schools_participation = School.where("participation > 0")
       @schools_avg = []
       @schools_participation.each do |school|
@@ -45,8 +50,8 @@ module Sinatra
         )
       end
       @RRavg = (@schools_avg.inject { |sum,el| sum + el}.to_f / @schools_avg.size).to_f
-      byebug
-      @top_five_schools = School.order("participation DESC limit 5").reverse
+      # top_five_schools = School.order("participation DESC limit 5")
+      @top_five_schools = ActiveRecord::Base.connection.execute(top_5_sql).to_a
       puts "average for all schools is currently #{@RRavg}"
 
       if params[:search_form]

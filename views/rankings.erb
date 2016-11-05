@@ -93,14 +93,17 @@
 
   <table class="uni-part">
     <tr><th>Rank</th><th>University</th><th>Student Voter Participation Rate (relative to average)*</th></tr>
-    <% @top_five_schools.each_with_index do |school, index| %>
-    <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td>
-      <%=
-        (
-        (school.participation.to_f / school.enrollment2015.to_f) / @RRavg
-        ).round(2)
-      %></td></tr>
-    <% end %>
+  <% @top_five_schools.each_with_index do |school, index| %>
+            <tr><th><%=index + 1%></th><td><%=school["instnm"]%></td><td>
+              <% if school["participation"] == 0 %>
+                Be the first to rep your school!</td></tr>
+              <% else %>
+                <%=
+                ( school["average_participation"].to_f/ @RRavg).round(2)
+                %></td></tr>
+            <%end%>
+            <%end%>
+
   </table>
       <p class="rate-legend">
         *Rates are calculated relative to the average school and are corrected for 2015 student body size.
@@ -116,12 +119,12 @@
       <table class="uni-part">
         <tr><th>Rank</th><th>University</th><th>Student Voter Participation Rate (relative to average)*</th></tr>
         <% @schools.each_with_index do |school, index| %>
-        <tr><th><%=index + 1%></th><td><%=school.instnm%></td><td>
-          <% if school.participation == 0 %>
+        <tr><th><%=index + 1%></th><td><%=school["instnm"]%></td><td>
+          <% if school["participation"] == 0 %>
             Be the first to rep your school!</td></tr>
           <% else %>
             <%=
-            ((school.participation.to_f / school.enrollment2015.to_f) / @RRavg).round(2)
+            ( school["average_participation"].to_f/ @RRavg).round(2)
             %></td></tr>
         <%end%>
         <%end%>
